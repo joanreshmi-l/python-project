@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+          body {
+        background-color: #9aaca5;
+        background-repeat: no-repeat;
+        background-position: center ;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+        .topnav {
+               background-color: rgb(210, 199, 199);
+               overflow: hidden;
+            }
+    .topnav a {
+        float: right;
+        color: #181313;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        }
+    .topnav a:hover {
+        background-color: #cf5050;
+        color: rgb(173, 154, 154);
+    }
+    .topnav a.active {
+        background-color: #9aaca5;
+        color: rgb(23, 20, 20);
+    }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href ="{% url 'logout' %}">logout</a>
+        </div>
+    <h1>Welcome to the Landing Page!</h1>
+    <div class="container-fluid">
+        <div class="col-md-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>UserName</th>
+                        <th>Email</th>
+                       
+                        
+                        <!-- <th>confirm_password</th> -->
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                {% for mydata in member %}
+                <tbody>
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ mydata.username }}</td>
+                        <td>{{ mydata.email }}</td>
+                        
+                       
+                        <!-- <td>{{ mydata.confirm_password }}</td> -->
+                        <td><a class="btn btn-success" href ="{% url 'update' mydata.id %}">Update</a></td>
+                        <td><a class="btn btn-danger" href ="{% url 'delete' mydata.id %}">Delete</a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                
+            </table>
+        </div>
+        </div>
+    <!-- <script src="landing.js"></script> -->
+</body>
+</html>
+

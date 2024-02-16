@@ -1,0 +1,24 @@
+<html>
+    <head><title>Password Reset</title></head>
+    <body>
+        <h1>Forgotten your password?</h1>
+        
+        <form action="{% url 'reset' %}" method="post">
+            {% csrf_token %}
+            <div class="input"> 
+                <label for="email">Enter your Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <div class="error"></div>
+            </div> 
+            <p><input type="submit" value="Send e-mail"></p>
+        </form>
+
+    </body>
+</html>
+
+
+
+
+
+
+
